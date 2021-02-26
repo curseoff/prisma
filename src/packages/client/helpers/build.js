@@ -26,14 +26,14 @@ async function main() {
     run('tsc --build tsconfig.runtime.json', true),
     run('tsc --build tsconfig.json', true),
     run(
-      "esbuild src/generator.ts --outfile=generator-build/index.js --bundle --platform=node --target=node10 --external:@prisma/engines",
+      "esbuild src/generator.ts --outfile=generator-build/index.js --bundle --platform=node --target=node10",
       false,
     ),
   ])
 
   await Promise.all([
     run(
-      "esbuild src/runtime/index.ts --outdir=runtime --bundle --platform=node --target=node10 --external:@prisma/engines",
+      "esbuild src/runtime/index.ts --outdir=runtime --bundle --platform=node --target=node10",
       false,
     ),
     await run(
