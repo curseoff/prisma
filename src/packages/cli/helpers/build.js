@@ -21,16 +21,16 @@ async function main() {
       platform: 'node',
       bundle: true,
       target: 'node10',
-      outfile: 'build/index.js', 
+      outfile: 'build/index.js',
       entryPoints: ['src/bin.ts'],
-      external: ['@prisma/engines']
+      external: ['@prisma/engines'],
     }),
     esbuild.build({
       platform: 'node',
       bundle: true,
       minify: true,
       target: ['node10'],
-      outfile: 'preinstall/index.js', 
+      outfile: 'preinstall/index.js',
       entryPoints: ['scripts/preinstall.js'],
     }),
     esbuild.build({
@@ -38,7 +38,7 @@ async function main() {
       bundle: true,
       minify: true,
       target: ['node10'],
-      outfile: 'install/index.js', 
+      outfile: 'install/index.js',
       entryPoints: ['scripts/install.js'],
     }),
     copy({

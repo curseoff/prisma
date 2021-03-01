@@ -29,9 +29,9 @@ async function main() {
       platform: 'node',
       bundle: true,
       target: 'node10',
-      outfile: 'generator-build/index.js', 
-      entryPoints: ['src/generator.ts']
-    })
+      outfile: 'generator-build/index.js',
+      entryPoints: ['src/generator.ts'],
+    }),
   ])
 
   await Promise.all([
@@ -39,16 +39,16 @@ async function main() {
       platform: 'node',
       bundle: true,
       target: 'node10',
-      outdir: 'runtime', 
-      entryPoints: ['src/runtime/index.ts']
+      outdir: 'runtime',
+      entryPoints: ['src/runtime/index.ts'],
     }),
     esbuild.build({
       platform: 'node',
       bundle: true,
       format: 'cjs',
-      target: ['chrome58','firefox57','safari11','edge16'],
-      outdir: 'runtime', 
-      entryPoints: ['src/runtime/index-browser.ts']
+      target: ['chrome58', 'firefox57', 'safari11', 'edge16'],
+      outdir: 'runtime',
+      entryPoints: ['src/runtime/index-browser.ts'],
     }),
     run('rollup -c'),
   ])
